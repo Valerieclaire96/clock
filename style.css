@@ -1,19 +1,40 @@
-* , *::after, *::before {
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,700&display=swap'); 
+  
+  *, *::after, *::before {
     box-sizing: border-box;
-    font-family: ;
+    font-family: 'EB Garamond', serif
 }
 body{
-    background: linear-gradient(to right, rgba(59, 95, 196, 0.904) ,rgb(59, 28, 117) );
-    color: rgb(27, 3, 27)
+    background-image:url("Images/henry-co-mjPs0heWsek-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
 .clock {
     width: 300px;
     height: 300px;
-    background-color: rgba(255, 255, 255, 0.459);
+    background-image: url("Images/rebecca-orlov-epic-playdate-HGVtA1zSHo4-unsplash.jpg");
     border-radius: 50%;
-    border: 2px solid black;
     position: relative;
+    margin-top: 12px;
+    border: none;
+    box-shadow: inset 0 0 20px black;
+
 }
+.frame {
+    background-image: url("Images/katie-harp-Em96eDRJPD8-unsplash.jpg");
+    border-radius: 50%;
+    height: 325px;
+    width: 325px;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    border: 1px solid black;
+}
+
 .clock .number {
     --roation: 0;
     position: absolute;
@@ -21,6 +42,9 @@ body{
     height: 100%;
     text-align: center;
     transform: rotate(var(--rotation));
+    font-size: 1.5rem;
+    color: black;
+    padding-top: 5px;
 }
 .clock .number1 { --rotation: 30deg}
 .clock .number2 { --rotation: 60deg}
@@ -33,13 +57,144 @@ body{
 .clock .number9 { --rotation: 270deg}
 .clock .number10 { --rotation: 300deg}
 .clock .number11 { --rotation: 330deg}
-.clock .number12 { --rotation: 360deg}
+/* .clock .number12 { --rotation: 360deg} */
 
 .clock .hand {
+    --rotation : 0;
+    position: absolute; 
+    bottom: 50%;
+    left: 50%;
+    /* background-color: black; */
+    border: 1px solid white;
+    border-top-left-radius : 10px;
+    border-top-right-radius: 10px ;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translatex(-50%) rotate(calc(var(--rotation) *1deg));
+}   
+.clock::after{
+    content: '';
+    position: absolute;
+    background-image: url("Images/katie-harp-Em96eDRJPD8-unsplash.jpg");
+    border: 1px solid rgba(0, 0, 0, 0.075);
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: .5px .5px .5px .5px black;
+}
+.clock .hand.second {
+    width: 3px;
+    height: 40%;
+    background-color: black;
+    border: none;
+    box-shadow: .5px .5px 1px 1px black;
+}
+.clock .hand.minute {
+    width: 7px;
+    height: 40%;
+    border-radius: 90%;
+    background-image: url("Images/katie-harp-Em96eDRJPD8-unsplash.jpg");
+    border: none;
+    box-shadow: 1px 1px 2px 2px black;
+}
+.clock .hand.hour { 
+    width: 8px;
+    height: 35%;
+    border-radius: 80%;
+    border: none;
+    background-image: url("Images/katie-harp-Em96eDRJPD8-unsplash.jpg");
+    border: none;
+    box-shadow: 1px 1px 2px 2px black;
+}
+/* *, *::after, *::before {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(to right, hsl(200, 100%, 50%), hsl(175, 100%, 50%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .clock {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 50%;
+    border: 2px solid black;
+    position: relative;
+  }
+  
+  .clock .number {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 1.5rem;
+  }
+  
+  .clock .number1 { --rotation: 30deg; }
+  .clock .number2 { --rotation: 60deg; }
+  .clock .number3 { --rotation: 90deg; }
+  .clock .number4 { --rotation: 120deg; }
+  .clock .number5 { --rotation: 150deg; }
+  .clock .number6 { --rotation: 180deg; }
+  .clock .number7 { --rotation: 210deg; }
+  .clock .number8 { --rotation: 240deg; }
+  .clock .number9 { --rotation: 270deg; }
+  .clock .number10 { --rotation: 300deg; }
+  .clock .number11 { --rotation: 330deg; }
+  
+  /* .clock .hand {
+    --rotation: 0;
     position: absolute;
     bottom: 50%;
     left: 50%;
-    width: 10px;
+    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  }
+  
+  .clock::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  
+  .clock .hand.second {
+    width: 3px;
+    height: 45%;
+    background-color: red;
+  }
+  
+  .clock .hand.minute {
+    width: 7px;
     height: 40%;
     background-color: black;
-}
+  }
+  
+  .clock .hand.hour {
+    width: 10px;
+    height: 35%;
+    background-color: black;
+  } */ 
